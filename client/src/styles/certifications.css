@@ -1,0 +1,58 @@
+.cert-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.cert-title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.cert-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  margin-bottom: 12px;
+}
+
+.cert-row input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  cursor: pointer;
+  color: #777;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.add-btn {
+  margin-top: 10px;
+  background: #111827;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.center {
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}

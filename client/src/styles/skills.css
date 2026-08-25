@@ -1,0 +1,47 @@
+.skills-container{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  margin:30px auto;
+  width:90%;
+}
+
+.skills-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.skills-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.skills-title h2{
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.suggest-btn{
+  background:#111827;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:12px;
+}
+.skills-group{
+  margin-bottom:20px;
+}
+
+.skills-label{
+  display:block;
+  font-size:12px;
+  letter-spacing:1px;
+  color:#666;
+  margin-bottom:8px;
+}
