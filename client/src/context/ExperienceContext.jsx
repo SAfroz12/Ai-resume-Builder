@@ -25,9 +25,7 @@ export const ExperienceProvider = ({ children }) => {
       [field]: value
     }));
   };
-  const fillDummyExperience = (data) => {
-    setExperience(data);
-  };
+
   const resetExperience = () => {
     setExperience(initialExperience);
     localStorage.removeItem("experience");
@@ -36,7 +34,6 @@ export const ExperienceProvider = ({ children }) => {
     <ExperienceContext.Provider value={{ experience,
      setExperience, 
      updateField,
-      fillDummyExperience,
       resetExperience }}>
       {children}
     </ExperienceContext.Provider>

@@ -1,23 +1,15 @@
 import { useContext } from "react";
-// import { dummyData } from "../../utils/dummyData";
 import { PersonalInfoContext } from "../../context/PersonalInfoContext";
 import { EducationContext } from "../../context/EducationContext";
 import { SkillsContext } from "../../context/SkillsContext";
 import { ProjectsContext } from "../../context/ProjectsContext";
 import { ExperienceContext } from "../../context/ExperienceContext";
 import { CertificationsContext } from "../../context/CertificationsContext";
-import { useNavigate } from "react-router-dom";
+
 import { AiPreviewContext } from "../../context/AiPreviewContext";
 import "../../styles/navbar.css";
-
+import ResumeUpload from "./ResumeUpload";
 function Navbar() {
-  const navigate = useNavigate();
-  const { fillDummyPersonalInfo } = useContext(PersonalInfoContext);
-  const { fillDummyEducation } = useContext(EducationContext);
-  const { fillDummySkills } = useContext(SkillsContext);
-  const { fillDummyProjects } = useContext(ProjectsContext);
-  const { fillDummyExperience } = useContext(ExperienceContext);
-  const { fillDummyCertifications } = useContext(CertificationsContext);
   //reset//
   const { resetPersonalInfo } = useContext(PersonalInfoContext);
   const { resetEducation } = useContext(EducationContext);
@@ -26,14 +18,7 @@ function Navbar() {
   const { resetExperience } = useContext(ExperienceContext);
   const { resetCertifications } = useContext(CertificationsContext);
   const { resetAiPreview } = useContext(AiPreviewContext);
-  const handleFillDummy = () => {
-    fillDummyPersonalInfo(dummyData.personalInfo);
-    fillDummyEducation(dummyData.education);
-    fillDummySkills(dummyData.skills);
-    fillDummyProjects(dummyData.projects);
-    fillDummyExperience(dummyData.experience);
-    fillDummyCertifications(dummyData.certifications);
-  };
+
   const handleReset = () => {
     resetPersonalInfo();
     resetEducation();
@@ -56,6 +41,7 @@ function Navbar() {
         <div className="nav-actions">
 
 
+      <ResumeUpload />
 
           <button className="reset-btn" onClick={handleReset}>
             Reset

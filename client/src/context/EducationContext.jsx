@@ -52,20 +52,6 @@ export const EducationProvider = ({ children }) => {
   const deleteEducation = (index) => {
     setEducations(prev => prev.filter((_, i) => i !== index));
   };
-
-  const fillDummyEducation = (data) => {
-    if (Array.isArray(data)) {
-      setEducations(data);
-    } else if (typeof data === "object" && data !== null) {
-
-      setEducations([data]);
-    } else {
-      // fallback
-      setEducations([
-        { school: "", degree: "", cgpa: "", startDate: "", endDate: "" }
-      ]);
-    }
-  };
   const resetEducation = () => {
     setEducations(initialEducation);
     localStorage.removeItem("educations");
@@ -78,7 +64,7 @@ export const EducationProvider = ({ children }) => {
         updateField,
         addEducation,
         deleteEducation,
-        fillDummyEducation,
+      
         resetEducation
       }}
     >

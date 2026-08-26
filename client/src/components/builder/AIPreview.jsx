@@ -29,7 +29,7 @@ function AIPreview({
     try {
       setLoadingAI(true);
       console.log(" Sending request...");
-      const response = await fetch("https://resume-builder-backend-3-4l5w.onrender.com/analyze", {
+      const response = await fetch("http://localhost:3000/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -99,7 +99,7 @@ function AIPreview({
   return (
     <div className="data">
 
-      {/* ------------ HEADER (MATCH TEMPLATE) ------------ */}
+ 
       <div className="header">
         <h2>{d.personalInfo?.fullName}</h2>
 
@@ -116,13 +116,12 @@ function AIPreview({
         </div>
       </div>
 
-      {/* ------------ SUMMARY ------------ */}
+    
       <div className="section">
         <h2>PROFESSIONAL SUMMARY</h2>
         <p>{d.personalInfo?.summary}</p>
       </div>
 
-      {/* ------------ EDUCATION ------------ */}
       <div className="section">
         <h2>EDUCATION</h2>
 
@@ -139,7 +138,6 @@ function AIPreview({
         ))}
       </div>
 
-      {/* ------------ SKILLS ------------ */}
       <div className="section">
         <h2>SKILLS</h2>
 
@@ -156,7 +154,6 @@ function AIPreview({
         </p>
       </div>
 
-      {/* ------------ PROJECTS ------------ */}
       <div className="section">
         <h2>PROJECTS</h2>
 
@@ -172,7 +169,7 @@ function AIPreview({
           </div>
         ))}
       </div>
-      {/* ------------ EXPERIENCE ------------ */}
+
 
       {/* HIDE ENTIRE EXPERIENCE SECTION IF EMPTY */}
       {type !== "fresher" && d.experience && Object.keys(d.experience).length > 0 && (
@@ -228,8 +225,6 @@ function AIPreview({
           )}
         </div>
       )}
-
-      {/* ------------ CERTIFICATIONS ------------ */}
       <div className="section">
         <h2>CERTIFICATIONS</h2>
         {normalize(d.certifications)?.map((c, i) => (

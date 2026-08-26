@@ -95,3 +95,117 @@ padding: 0;
 .header h2 {
   font-size: 22px;
 }
+/* //template 2 */
+.template-two {
+  padding: 36px;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+
+/* HEADER */
+
+.template-two-header {
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #1f2937;
+}
+
+.template-two-header h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.template-two-role {
+  margin: 6px 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.template-two-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 11px;
+}
+
+
+.template-two-body {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin-top: 24px;
+}
+
+
+
+
+.template-two-sidebar {
+  padding-right: 24px;
+  border-right: 1px solid #d1d5db;
+}
+
+
+.template-two-main {
+  padding-left: 26px;
+}
+
+.template-two-section {
+  margin-bottom: 24px;
+}
+
+.template-two-section h2 {
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  border-bottom: 1px solid #d1d5db;
+}
+
+.template-two-section h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.template-two-section p {
+  margin: 4px 0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.template-two-item {
+  margin-bottom: 18px;
+}
+
+.template-two-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.template-two-item-top > span {
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.template-two-sidebar .template-two-section p {
+  line-height: 1.7;
+}
+.template-two-muted {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+@media print {
+
+  .template-two {
+    padding: 30px;
+  }
+
+  .template-two-body {
+    grid-template-columns: 30% 70%;
+  }
+
+}

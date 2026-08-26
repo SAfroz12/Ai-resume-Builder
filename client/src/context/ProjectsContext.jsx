@@ -42,9 +42,7 @@ export const ProjectsProvider = ({ children }) => {
     );
   };
 
-  const fillDummyProjects = (data) => {
-    setProjects(data);
-  };
+
   const resetProjects = () => {
     setProjects(initialProjects);
     localStorage.removeItem("projects");
@@ -57,7 +55,6 @@ export const ProjectsProvider = ({ children }) => {
         addProject,
         deleteProject,
         updateProject,
-        fillDummyProjects,
         resetProjects
       }}
     >

@@ -16,7 +16,7 @@ import { ProjectsContext } from "../context/ProjectsContext";
 import { CertificationsContext } from "../context/CertificationsContext";
 import { useContext } from "react";
 import Navbar from "../components/builder/Navbar";
-import "../styles/builder-theme.css"
+// import "../styles/builder-theme.css"
 
 function BuilderPage() {
 

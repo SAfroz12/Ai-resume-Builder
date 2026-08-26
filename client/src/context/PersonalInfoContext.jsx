@@ -33,10 +33,6 @@ export const PersonalInfoProvider = ({ children }) => {
     }));
   };
 
-  const fillDummyPersonalInfo = (data) => {
-    setPersonalInfo(data);
-  };
-
   const resetPersonalInfo = () => {
     setPersonalInfo(initialPersonalInfo);
     localStorage.removeItem("personalInfo");
@@ -48,7 +44,6 @@ export const PersonalInfoProvider = ({ children }) => {
         personalInfo,
         setPersonalInfo,
         updateField,
-        fillDummyPersonalInfo,
         resetPersonalInfo
       }}
     >

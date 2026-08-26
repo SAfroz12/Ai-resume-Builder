@@ -22,10 +22,6 @@ export const SkillsProvider = ({ children }) => {
     localStorage.setItem("skills", JSON.stringify(skills));
   }, [skills]);
 
-  const fillDummySkills = (data) => {
-    setSkills(data);
-  };
-
   const resetSkills = () => {
     setSkills(initialSkills);
     localStorage.removeItem("skills");
@@ -36,7 +32,6 @@ export const SkillsProvider = ({ children }) => {
       value={{
         skills,
         setSkills,
-        fillDummySkills,
         resetSkills
       }}
     >

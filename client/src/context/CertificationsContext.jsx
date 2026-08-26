@@ -39,9 +39,7 @@ export const CertificationsProvider = ({ children }) => {
       )
     );
   };
-  const fillDummyCertifications = (data) => {
-  setCertifications(data);
-};
+  
 const resetCertifications = () => {
   setCertifications(initialCertifications);
   localStorage.removeItem("certifications");
@@ -55,7 +53,7 @@ const resetCertifications = () => {
 
         addCertification,
         deleteCertification,
-        updateCertification,fillDummyCertifications,resetCertifications
+        updateCertification,resetCertifications
       }}
     >
       {children}

@@ -10,8 +10,8 @@ function Skills() {
 
  const updateSkills = (type, value) => {
   const formatted = (value || []).map(item => ({
-    label: item.label || item.value,
-    value: item.value || item.label
+    label: item.label, 
+    value: item.value
   }));
 
   setSkills(prev => ({
@@ -33,7 +33,7 @@ function Skills() {
         <label>TECHNICAL SKILLS ({skills.technical.length})</label>
         <CreatableSelect
           isMulti
-          value={skills.technical||[]}
+          value={skills.technical}
           onChange={(selected) => updateSkills("technical", selected)}
         />
       </div>
@@ -42,7 +42,7 @@ function Skills() {
         <label>SOFT SKILLS ({skills.soft.length})</label>
         <CreatableSelect
           isMulti
-          value={skills.soft||[]}
+          value={skills.soft}
           onChange={(selected) => updateSkills("soft", selected)}
         />
       </div>
@@ -51,7 +51,7 @@ function Skills() {
         <label>TOOLS & TECHNOLOGIES ({skills.tools.length})</label>
         <CreatableSelect
           isMulti
-          value={skills.tools||[]}
+          value={skills.tools}
           onChange={(selected) => updateSkills("tools", selected)}
         />
       </div>
