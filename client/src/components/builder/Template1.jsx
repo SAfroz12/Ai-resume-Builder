@@ -401,7 +401,7 @@ const Template1 = ({ type, data }) => {
 
 
                                 {technologies.length > 0 && (
-                                    <div className="project-tech">]
+                                    <div className="project-tech">
                                         <p className="project-tech-stack">
                                             <strong>Tech:</strong> {project.techStack}
                                         </p>
