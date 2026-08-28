@@ -1,58 +1,111 @@
+
 .cert-container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px auto;
+  background: #ffffff;
+  padding: 24px;
+  border: 1px solid #e8ecf4;
+  border-radius: 16px;
+  margin: 0 20px 20px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
 }
 
 .cert-title {
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #1e293b;
 }
 
 .cert-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  margin-bottom: 12px;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 11px;
+  background: #f8fafc;
+  border: 1px solid #e5eaf1;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.cert-row:focus-within {
+  border-color: #a5b4fc;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
 }
 
 .cert-row input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  min-width: 0;
+  height: 40px;
+  padding: 0 11px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  transition: 0.2s ease;
 }
 
+.cert-row input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.cert-row input::placeholder {
+  color: #a8b1bf;
+}
+
+/* Delete */
+
 .delete-btn {
+  flex-shrink: 0;
+  padding: 6px;
+  box-sizing: content-box;
+  color: #94a3b8;
+  border-radius: 7px;
   cursor: pointer;
-  color: #777;
   transition: 0.2s ease;
 }
 
 .delete-btn:hover {
-  color: red;
+  color: #dc2626;
+  background: #fef2f2;
 }
 
+
 .add-btn {
-  margin-top: 10px;
-  background: #111827;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 8px;
+  padding: 0 18px;
+  border: 1px solid #c7d2fe;
+  border-radius: 9px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s ease;
 }
+
+.add-btn:hover {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+  transform: translateY(-1px);
+}
+
 .center {
   width: 100%;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  text-align: center !important;
 }

@@ -1,11 +1,87 @@
-.stats-container{
-    background:white;
-    border-radius:10px;
-    padding:25px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    width:90%;
-    margin:30px auto;
+
+.stats-container {
+  width: calc(100% - 40px);
+  margin: 28px auto 24px;
+
+  padding: 26px 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8eaf3;
+  border-radius: 16px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.05),
+    0 1px 3px rgba(15, 23, 42, 0.03);
 }
+
+
+.stats-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.label {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.score-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.score {
+  margin: 5px 0 0;
+
+  color: #2563eb;
+
+  font-size: 42px;
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.status-section {
+  text-align: right;
+}
+
+.status {
+  margin: 7px 0 0;
+
+  color: #334155;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.progress-section {
+  margin-top: 24px;
+}
+
+
+.progress-section > div {
+  border-radius: 999px !important;
+  overflow: hidden;
+}
+
+.progress-section > div > div {
+  border-radius: 999px !important;
+}
+
 
 .stats-header{
     display:flex;

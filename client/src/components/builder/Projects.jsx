@@ -88,9 +88,9 @@ function Projects() {
                                 <div className="input-group">
                                     <label>TECH STACK</label>
 
-
                                     <CreatableSelect
                                         isMulti
+                                        classNamePrefix="project-select"
                                         placeholder="Type and press Enter..."
                                         value={project.techStack}
                                         onChange={(selected) =>

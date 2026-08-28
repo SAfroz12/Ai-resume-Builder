@@ -1,16 +1,21 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { PersonalInfoContext } from "../../context/PersonalInfoContext";
 import { EducationContext } from "../../context/EducationContext";
 import { SkillsContext } from "../../context/SkillsContext";
 import { ProjectsContext } from "../../context/ProjectsContext";
 import { ExperienceContext } from "../../context/ExperienceContext";
 import { CertificationsContext } from "../../context/CertificationsContext";
-
 import { AiPreviewContext } from "../../context/AiPreviewContext";
+
 import "../../styles/navbar.css";
 import ResumeUpload from "./ResumeUpload";
+
 function Navbar() {
-  //reset//
+  const navigate = useNavigate();
+
+  // reset
   const { resetPersonalInfo } = useContext(PersonalInfoContext);
   const { resetEducation } = useContext(EducationContext);
   const { resetSkills } = useContext(SkillsContext);
@@ -28,29 +33,35 @@ function Navbar() {
     resetCertifications();
     resetAiPreview();
   };
+
   return (
-    <>
+    <nav className="navbar">
 
-      <div className="navbar">
-        <h1 className="logo" >
-          <span onClick={() => navigate("/")}>
-            Resume Builder
-          </span>
-        </h1>
+      <button
+        className="logo"
+        onClick={() => navigate("/")}
+        type="button"
+      >
+        <span className="logo-mark">✦</span>
+        <span className="logo-text">Resume<span>IQ</span></span>
+      </button>
 
-        <div className="nav-actions">
+      <div className="nav-actions">
 
+        <ResumeUpload />
 
-      <ResumeUpload />
+        <button
+          className="reset-btn"
+          onClick={handleReset}
+          type="button"
+        >
+          <span className="reset-icon">↻</span>
+          Reset
+        </button>
 
-          <button className="reset-btn" onClick={handleReset}>
-            Reset
-          </button>
-        </div>
       </div>
 
-    </>
-
+    </nav>
   );
 }
 

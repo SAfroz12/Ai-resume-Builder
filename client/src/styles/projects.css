@@ -1,113 +1,281 @@
+
+
 .projects-container {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 24px;
+  border-radius: 14px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e8eaf2;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
 }
 
-
-.projects-title{
-  font-size:14px;
-  letter-spacing:2px;
-  margin-bottom:20px;
+.projects-title {
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #111827;
 }
+
 
 .accordion-item {
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  background: #f9fafb;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  background: #ffffff;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.accordion-item:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.05);
 }
 
 .accordion-header {
+  min-height: 52px;
   display: flex;
-  justify-content: space-between; /* Push trash icon to right */
   align-items: center;
-  padding: 12px;
-  background: #fff;
-  border-radius: 8px 8px 0 0;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: #fafbff;
+  transition: background 0.2s ease;
 }
 
-.project-delete-icon {
+.accordion-header:hover {
+  background: #f5f7ff;
+}
+
+
+.accordion-left {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
-  color: #999;
-  transition: 0.2s ease;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.accordion-left svg {
+  flex-shrink: 0;
+  color: #6366f1;
+  transition: transform 0.2s ease;
+}
+
+
+.accordion-left span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+
+.project-delete-icon {
+  flex-shrink: 0;
+  cursor: pointer;
+  color: #94a3b8;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .project-delete-icon:hover {
-  color: red;
-}
-.accordion-header:hover{
-  background:#f8f8f8;
+  color: #ef4444;
+  transform: scale(1.08);
 }
 
-.accordion-body{
-  background: white;
+
+.accordion-body {
+  padding: 20px;
+  background: #ffffff;
+  border-top: 1px solid #edf0f5;
+}
+
+
+.accordion-body .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.accordion-body .input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-body .input-group label {
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #64748b;
+}
+
+
+.accordion-body .input-group input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #dbe0e8;
   border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-add-project-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 6px;
+.accordion-body .input-group input:hover {
+  border-color: #c4cad5;
 }
 
-.add-project-btn:hover {
-  background: #1d4ed8;
-}
-.accordion-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  cursor:pointer;
-}
-
-
-
-.rotate{
-  transform: rotate(180deg);
-  transition: transform 0.2s ease;
-}
-.accordion-body{
-  padding:15px;
-  border-top:1px solid #eee;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+.accordion-body .input-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 
-
-
-.description-section{
-  margin-top:20px;
+.accordion-body .input-group .react-select__control {
+  min-height: 42px;
+  border: 1px solid #dbe0e8;
+  border-radius: 8px;
+  box-shadow: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
 }
 
-.description-header{
-  display:flex;
-  justify-content:space-between;
-  font-size:12px;
-  color:#777;
+.accordion-body .input-group .react-select__control:hover {
+  border-color: #c4cad5;
 }
 
-.description-section textarea{
-  width:100%;
-  height:100px;
-  margin-top:5px;
-  padding:10px;
-  border:1px solid #ddd;
-  border-radius:6px;
-  resize:none;
+.accordion-body .input-group .react-select__control--is-focused {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
+
+.accordion-body .input-group .react-select__placeholder {
+  color: #94a3b8;
+}
+
+.accordion-body .input-group .react-select__multi-value {
+  background: #eef2ff;
+  border-radius: 5px;
+}
+
+.accordion-body .input-group .react-select__multi-value__label {
+  color: #4338ca;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.accordion-body .input-group .react-select__multi-value__remove {
+  color: #6366f1;
+}
+
+.accordion-body .input-group .react-select__multi-value__remove:hover {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+
+.description-section {
+  margin-top: 20px;
+}
+
+.description-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #64748b;
+}
+
+.description-header span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #94a3b8;
+}
+
+.description-section textarea {
+  width: 100%;
+  min-height: 115px;
+  padding: 11px 12px;
+  border: 1px solid #dbe0e8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  resize: vertical;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.description-section textarea:hover {
+  border-color: #c4cad5;
+}
+
+.description-section textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
 .center {
   width: 100%;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  text-align: center !important;
+  margin-top: 18px;
+}
+
+.add-project-btn {
+  min-height: 42px;
+  padding: 0 22px;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  background: #f5f3ff;
+  color: #4f46e5;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-project-btn:hover {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 5px 14px rgba(79, 70, 229, 0.2);
+}
+
+.add-project-btn:active {
+  transform: scale(0.98);
 }

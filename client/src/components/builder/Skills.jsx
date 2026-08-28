@@ -33,6 +33,7 @@ function Skills() {
         <label>TECHNICAL SKILLS ({skills.technical.length})</label>
         <CreatableSelect
           isMulti
+          classNamePrefix="skills-select"
           value={skills.technical}
           onChange={(selected) => updateSkills("technical", selected)}
         />
@@ -42,6 +43,7 @@ function Skills() {
         <label>SOFT SKILLS ({skills.soft.length})</label>
         <CreatableSelect
           isMulti
+          classNamePrefix="skills-select"
           value={skills.soft}
           onChange={(selected) => updateSkills("soft", selected)}
         />
@@ -51,6 +53,7 @@ function Skills() {
         <label>TOOLS & TECHNOLOGIES ({skills.tools.length})</label>
         <CreatableSelect
           isMulti
+          classNamePrefix="skills-select"
           value={skills.tools}
           onChange={(selected) => updateSkills("tools", selected)}
         />

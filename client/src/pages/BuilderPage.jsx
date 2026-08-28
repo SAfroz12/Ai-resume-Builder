@@ -59,7 +59,7 @@ function BuilderPage() {
 
           </div>
 
-          <div className="previewdata">
+          <div className="preview-panel">
 
             <Preview />
 

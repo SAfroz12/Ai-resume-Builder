@@ -1,6 +1,6 @@
 import { useRef, useContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useReactToPrint } from "react-to-print";
+import html2pdf from "html2pdf.js";
 import "../../styles/preview.css";
 import { EducationContext } from "../../context/EducationContext";
 import { PersonalInfoContext } from "../../context/PersonalInfoContext";
@@ -26,18 +26,68 @@ function Preview() {
   const { certifications } = useContext(CertificationsContext);
 
   const { aiPreviewData } = useContext(AiPreviewContext);
+  const handleExport = async () => {
+    const element = componentRef.current;
 
-  const handlePrint = useReactToPrint({
-    contentRef: componentRef,
-    documentTitle: "My Resume",
-  });
+    if (!element) {
+      alert("Resume preview is not ready.");
+      return;
+    }
 
-  const handleAIResult = () => {
-    setMode("ai");
+    try {
+      console.log("EXPORT STARTED");
+
+      const options = {
+        margin: 0,
+
+        filename: "My-Resume.pdf",
+
+        image: {
+          type: "jpeg",
+          quality: 0.98,
+        },
+
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: "#ffffff",
+        },
+
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+        },
+
+        pagebreak: {
+          mode: ["css"],
+          avoid: [
+            ".project-item",
+            ".template-two-item",
+            ".resume-project",
+            ".resume-education-item",
+            ".resume-experience-item",
+            ".resume-certification-item",
+          ],
+        },
+      };
+
+      await html2pdf()
+        .set(options)
+        .from(element)
+        .save();
+
+      console.log("EXPORT SUCCESS");
+    } catch (error) {
+      console.error("EXPORT ERROR:", error);
+
+      alert("Failed to export resume.");
+    }
   };
 
   return (
-    <div className="previewdata">
+    <div className="preview-inner">
       <div className="preview-header">
         <div className="left-buttons">
           <button
@@ -57,7 +107,7 @@ function Preview() {
 
         <button
           className="download-btn"
-          onClick={handlePrint}
+          onClick={handleExport}
         >
           Export
         </button>
@@ -71,43 +121,29 @@ function Preview() {
           className="preview-paper"
           ref={componentRef}
         >
-             {mode === "preview" ? (
-
+          {mode === "preview" ? (
             <Template
               type={type}
               template={template}
             />
-
+          ) : !aiPreviewData ? (
+            <AIPreview
+              type={type}
+              template={template}
+              personalInfo={personalInfo}
+              education={educations}
+              skills={skills}
+              projects={projects}
+              experience={experience}
+              certifications={certifications}
+            />
           ) : (
-
-            <>
-              {!aiPreviewData ? (
-
-                <AIPreview
-                  type={type}
-                  template={template}
-                  personalInfo={personalInfo}
-                  education={educations}
-                  skills={skills}
-                  projects={projects}
-                  experience={experience}
-                  certifications={certifications}
-                  onResult={handleAIResult}
-                />
-
-              ) : (               
-                <AIResumeTemplate
-                  type={type}
-                  template={template}
-                  data={aiPreviewData}
-                />
-
-              )}
-            </>
-
+            <AIResumeTemplate
+              type={type}
+              template={template}
+              data={aiPreviewData}
+            />
           )}
-        
-
         </div>
 
       </div>

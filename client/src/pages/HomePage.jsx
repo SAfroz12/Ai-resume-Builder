@@ -19,182 +19,312 @@ function HomePage() {
   return (
     <div className="homepage-wrapper">
 
-      <div className="home-container">
+      <main className="home-container">
 
-        <h2 className="home-title">
-          Choose Resume Type
-        </h2>
+        <div className="home-header">
 
-        {/* RESUME TYPE */}
-
-        <div className="cards">
-
-          <div
-            className={`card ${resumeType === "fresher" ? "selected" : ""}`}
-            onClick={() => setResumeType("fresher")}
-          >
-            <div className="icon">🎓</div>
-            <h3>Fresher</h3>
+          <div className="home-brand">
+            <span className="brand-star">✦</span>
+            ResumeIQ
           </div>
 
-          <div
-            className={`card ${resumeType === "experienced" ? "selected" : ""}`}
-            onClick={() => setResumeType("experienced")}
-          >
-            <div className="icon">💼</div>
-            <h3>Experienced</h3>
-          </div>
+          <h1 className="home-title">
+             Choose your resume type and a professional template
+          </h1>
+
+       
 
         </div>
 
-        <h2 className="home-title template-heading">
-          Choose Template
-        </h2>
 
-        <div className="template-cards">
+        <section className="selection-section">
 
-          <div
-            className={`template-card ${
-              template === "template1" ? "selected" : ""
-            }`}
-            onClick={() => setTemplate("template1")}
-          >
+          <div className="section-heading">
 
-            <div className="template-preview template-one-preview">
+            <span className="section-number">
+              01
+            </span>
 
-              <div className="mini-header">
-                YOUR NAME
-              </div>
+            <div>
+              <h2>Choose Resume Type</h2>
 
-              <div className="mini-line"></div>
-
-              <div className="mini-section">
-                PROFESSIONAL SUMMARY
-              </div>
-
-              <div className="mini-text"></div>
-              <div className="mini-text short"></div>
-
-              <div className="mini-section">
-                EDUCATION
-              </div>
-
-              <div className="mini-text"></div>
-
-              <div className="mini-section">
-                PROJECTS
-              </div>
-
-              <div className="mini-text"></div>
-              <div className="mini-text"></div>
-
+              <p>
+                Select the option that best matches your experience.
+              </p>
             </div>
-
-            <h3>Template 1</h3>
-            <p>Classic Single Column</p>
 
           </div>
 
 
-          {/* TEMPLATE 2 */}
+          <div className="cards">
 
-          <div
-            className={`template-card ${
-              template === "template2" ? "selected" : ""
-            }`}
-            onClick={() => setTemplate("template2")}
-          >
 
-            <div className="template-preview template-two-preview">
+            <div
+              className={`card ${
+                resumeType === "fresher" ? "selected" : ""
+              }`}
+              onClick={() => setResumeType("fresher")}
+            >
 
-              <div className="mini-header">
-                YOUR NAME
+              {resumeType === "fresher" && (
+                <span className="selection-check">
+                  ✓
+                </span>
+              )}
+
+              <div className="icon">
+                🎓
               </div>
 
-              <div className="mini-line"></div>
+              <div className="card-content">
 
-              <div className="mini-columns">
+                <h3>
+                  Fresher
+                </h3>
 
-                <div className="mini-left">
-
-                  <div className="mini-section">
-                    SKILLS
-                  </div>
-
-                  <div className="mini-text"></div>
-                  <div className="mini-text"></div>
-                  <div className="mini-text short"></div>
-
-                  <div className="mini-section">
-                    TOOLS
-                  </div>
-
-                  <div className="mini-text"></div>
-                  <div className="mini-text short"></div>
-
-                  <div className="mini-section">
-                    CERTIFICATIONS
-                  </div>
-
-                  <div className="mini-text"></div>
-
-                </div>
-
-                <div className="mini-right">
-
-                  <div className="mini-section">
-                    SUMMARY
-                  </div>
-
-                  <div className="mini-text"></div>
-                  <div className="mini-text"></div>
-
-                  <div className="mini-section">
-                    EXPERIENCE
-                  </div>
-
-                  <div className="mini-text"></div>
-                  <div className="mini-text"></div>
-                  <div className="mini-text short"></div>
-
-                  <div className="mini-section">
-                    PROJECTS
-                  </div>
-
-                  <div className="mini-text"></div>
-                  <div className="mini-text"></div>
-
-                </div>
+                <p>
+                  For students, graduates and entry-level candidates.
+                </p>
 
               </div>
 
             </div>
 
-            <h3>Template 2</h3>
-            <p>Modern Two Column</p>
+            <div
+              className={`card ${
+                resumeType === "experienced" ? "selected" : ""
+              }`}
+              onClick={() => setResumeType("experienced")}
+            >
+
+              {resumeType === "experienced" && (
+                <span className="selection-check">
+                  ✓
+                </span>
+              )}
+
+              <div className="icon">
+                💼
+              </div>
+
+              <div className="card-content">
+
+                <h3>
+                  Experienced
+                </h3>
+
+                <p>
+                  For professionals with previous work experience.
+                </p>
+
+              </div>
+
+            </div>
 
           </div>
 
+        </section>
+
+        <section className="selection-section template-section">
+
+          <div className="section-heading">
+
+            <span className="section-number">
+              02
+            </span>
+
+            <div>
+              <h2>Choose Your Template</h2>
+
+              <p>
+                Pick a design that matches your professional style.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="template-cards">
+
+
+            <div
+              className={`template-card ${
+                template === "template1" ? "selected" : ""
+              }`}
+              onClick={() => setTemplate("template1")}
+            >
+
+              {template === "template1" && (
+                <span className="selection-check">
+                  ✓
+                </span>
+              )}
+
+              <div className="template-preview template-one-preview">
+
+                <div className="mini-header">
+                  YOUR NAME
+                </div>
+
+                <div className="mini-line"></div>
+
+                <div className="mini-section">
+                  PROFESSIONAL SUMMARY
+                </div>
+
+                <div className="mini-text"></div>
+                <div className="mini-text short"></div>
+
+                <div className="mini-section">
+                  EDUCATION
+                </div>
+
+                <div className="mini-text"></div>
+
+                <div className="mini-section">
+                  PROJECTS
+                </div>
+
+                <div className="mini-text"></div>
+                <div className="mini-text"></div>
+
+              </div>
+
+              <div className="template-info">
+
+                <h3>
+                  Template 1
+                </h3>
+
+                <p>
+                  Classic Single Column
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              className={`template-card ${
+                template === "template2" ? "selected" : ""
+              }`}
+              onClick={() => setTemplate("template2")}
+            >
+
+              {template === "template2" && (
+                <span className="selection-check">
+                  ✓
+                </span>
+              )}
+
+              <div className="template-preview template-two-preview">
+
+                <div className="mini-header">
+                  YOUR NAME
+                </div>
+
+                <div className="mini-line"></div>
+
+                <div className="mini-columns">
+
+                  <div className="mini-left">
+
+                    <div className="mini-section">
+                      SKILLS
+                    </div>
+
+                    <div className="mini-text"></div>
+                    <div className="mini-text"></div>
+                    <div className="mini-text short"></div>
+
+                    <div className="mini-section">
+                      TOOLS
+                    </div>
+
+                    <div className="mini-text"></div>
+                    <div className="mini-text short"></div>
+
+                    <div className="mini-section">
+                      CERTIFICATIONS
+                    </div>
+
+                    <div className="mini-text"></div>
+
+                  </div>
+
+
+                  <div className="mini-right">
+
+                    <div className="mini-section">
+                      SUMMARY
+                    </div>
+
+                    <div className="mini-text"></div>
+                    <div className="mini-text"></div>
+
+                    <div className="mini-section">
+                      EXPERIENCE
+                    </div>
+
+                    <div className="mini-text"></div>
+                    <div className="mini-text"></div>
+                    <div className="mini-text short"></div>
+
+                    <div className="mini-section">
+                      PROJECTS
+                    </div>
+
+                    <div className="mini-text"></div>
+                    <div className="mini-text"></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div className="template-info">
+
+                <h3>
+                  Template 2
+                </h3>
+
+                <p>
+                  Modern Two Column
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <div className="home-action">
+
+          <button
+            className="start-building-btn"
+            disabled={!resumeType || !template}
+            onClick={handleStartBuilding}
+          >
+            Start Building
+
+            <span>
+              →
+            </span>
+
+          </button>
+
+          <p className="home-footer">
+            Your choices can be changed later while building your resume.
+          </p>
+
         </div>
 
-
-        {/* START BUTTON */}
-
-        <button
-          className="start-building-btn"
-          disabled={!resumeType || !template}
-          onClick={handleStartBuilding}
-        >
-          Start Building
-        </button>
-
-
-        <p className="subtitle">
-          Build ATS-friendly AI powered resumes with modern templates
-          and smart content generation.
-        </p>
-
-      </div>
+      </main>
 
     </div>
   );

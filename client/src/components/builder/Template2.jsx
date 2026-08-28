@@ -29,33 +29,47 @@ const Template2 = ({ type, data }) => {
     const { certifications: contextCertifications } =
         useContext(CertificationsContext);
 
+    const personalInfo = data?.personalInfo || contextPersonalInfo || {};
 
-    // Normal Preview → Context data
-    // AI Preview → AI data
+    const educations = Array.isArray(data?.education)
+        ? data.education
+        : Array.isArray(contextEducations)
+            ? contextEducations
+            : [];
 
-    const personalInfo =
-        data?.personalInfo || contextPersonalInfo;
+    const rawSkills = data?.skills || contextSkills || {};
 
-    const educations =
-        data?.education || contextEducations;
+    const skills = {
+        technical: Array.isArray(rawSkills.technical)
+            ? rawSkills.technical
+            : [],
 
-    const skills =
-        data?.skills || contextSkills;
+        soft: Array.isArray(rawSkills.soft)
+            ? rawSkills.soft
+            : [],
 
-    const projects =
-        data?.projects || contextProjects;
+        tools: Array.isArray(rawSkills.tools)
+            ? rawSkills.tools
+            : []
+    };
 
-    const experience =
-        data?.experience || contextExperience;
+    const projects = Array.isArray(data?.projects)
+        ? data.projects
+        : Array.isArray(contextProjects)
+            ? contextProjects
+            : [];
 
-    const certifications =
-        data?.certifications || contextCertifications;
+    const experience = data?.experience || contextExperience || {};
+
+    const certifications = Array.isArray(data?.certifications)
+        ? data.certifications
+        : Array.isArray(contextCertifications)
+            ? contextCertifications
+            : [];
 
 
     return (
         <div className="data template-two">
-
-            {/* HEADER */}
 
             <div className="template-two-header">
 
@@ -127,8 +141,8 @@ const Template2 = ({ type, data }) => {
                         <h2>SKILLS</h2>
 
                         {skills.technical.length === 0 &&
-                        skills.soft.length === 0 &&
-                        skills.tools.length === 0 ? (
+                            skills.soft.length === 0 &&
+                            skills.tools.length === 0 ? (
 
                             <p className="placeholder">
                                 Add your skills
@@ -145,7 +159,11 @@ const Template2 = ({ type, data }) => {
 
                                         <p>
                                             {skills.technical
-                                                .map(skill => skill.label)
+                                                .map(skill =>
+                                                    skill?.label ||
+                                                    skill?.value ||
+                                                    skill
+                                                )
                                                 .join(", ")}
                                         </p>
 
@@ -160,7 +178,11 @@ const Template2 = ({ type, data }) => {
 
                                         <p>
                                             {skills.soft
-                                                .map(skill => skill.label)
+                                                .map(skill =>
+                                                    skill?.label ||
+                                                    skill?.value ||
+                                                    skill
+                                                )
                                                 .join(", ")}
                                         </p>
 
@@ -175,7 +197,11 @@ const Template2 = ({ type, data }) => {
 
                                         <p>
                                             {skills.tools
-                                                .map(skill => skill.label)
+                                                .map(skill =>
+                                                    skill?.label ||
+                                                    skill?.value ||
+                                                    skill
+                                                )
                                                 .join(", ")}
                                         </p>
 
@@ -203,18 +229,26 @@ const Template2 = ({ type, data }) => {
 
                         ) : (
 
-                            certifications.map(cert => (
+                            certifications.map((cert, index) => {
 
-                                <p key={cert.id}>
-                                    •{" "}
-                                    {cert.name || (
-                                        <span className="placeholder">
-                                            Certification Name
-                                        </span>
-                                    )}
-                                </p>
+                                const certName =
+                                    typeof cert === "string"
+                                        ? cert
+                                        : cert?.name ||
+                                        cert?.label ||
+                                        cert?.title;
 
-                            ))
+                                return (
+                                    <p key={cert?.id || index}>
+                                        •{" "}
+                                        {certName || (
+                                            <span className="placeholder">
+                                                Certification Name
+                                            </span>
+                                        )}
+                                    </p>
+                                );
+                            })
 
                         )}
 
@@ -252,14 +286,14 @@ const Template2 = ({ type, data }) => {
                         <h2>EDUCATION</h2>
 
                         {educations.length === 0 ||
-                        educations.every(
-                            edu =>
-                                !edu.school &&
-                                !edu.degree &&
-                                !edu.cgpa &&
-                                !edu.startDate &&
-                                !edu.endDate
-                        ) ? (
+                            educations.every(
+                                edu =>
+                                    !edu?.school &&
+                                    !edu?.degree &&
+                                    !edu?.cgpa &&
+                                    !edu?.startDate &&
+                                    !edu?.endDate
+                            ) ? (
 
                             <p className="placeholder">
                                 Add your education details
@@ -271,7 +305,7 @@ const Template2 = ({ type, data }) => {
 
                                 <div
                                     className="template-two-item"
-                                    key={index}
+                                    key={edu?.id || index}
                                 >
 
                                     <div className="template-two-item-top">
@@ -279,7 +313,7 @@ const Template2 = ({ type, data }) => {
                                         <div>
 
                                             <h3>
-                                                {edu.school || (
+                                                {edu?.school || (
                                                     <span className="placeholder">
                                                         School / College Name
                                                     </span>
@@ -287,7 +321,7 @@ const Template2 = ({ type, data }) => {
                                             </h3>
 
                                             <p>
-                                                {edu.degree || (
+                                                {edu?.degree || (
                                                     <span className="placeholder">
                                                         Degree
                                                     </span>
@@ -297,13 +331,13 @@ const Template2 = ({ type, data }) => {
                                         </div>
 
                                         <span>
-                                            {edu.startDate || "Start"} -{" "}
-                                            {edu.endDate || "End"}
+                                            {edu?.startDate || "Start"} -{" "}
+                                            {edu?.endDate || "End"}
                                         </span>
 
                                     </div>
 
-                                    {edu.cgpa && (
+                                    {edu?.cgpa && (
                                         <p>
                                             CGPA: {edu.cgpa}
                                         </p>
@@ -353,90 +387,79 @@ const Template2 = ({ type, data }) => {
 
                         ) : (
 
-                            projects.map(project => (
+                            projects.map((project, index) => {
 
-                                <div
-                                    className="template-two-item"
-                                    key={project.id}
-                                >
+                                const technologies = Array.isArray(project?.techStack)
+                                    ? project.techStack
+                                    : [];
 
-                                    <h3>
-                                        {project.title || (
-                                            <span className="placeholder">
-                                                Project Title
-                                            </span>
+                                return (
+                                    <div
+                                        className="template-two-item"
+                                        key={project?.id || index}
+                                    >
+
+                                        <h3>
+                                            {project?.title || (
+                                                <span className="placeholder">
+                                                    Project Title
+                                                </span>
+                                            )}
+                                        </h3>
+
+
+                                        {project?.liveUrl && (
+                                            <p>
+                                                <strong>Live:</strong>{" "}
+                                                {project.liveUrl}
+                                            </p>
                                         )}
-                                    </h3>
 
 
-                                    {project.liveUrl ? (
+                                        {project?.githubUrl && (
+                                            <p>
+                                                <strong>GitHub:</strong>{" "}
+                                                {project.githubUrl}
+                                            </p>
+                                        )}
 
-                                        <p>
-                                            <strong>Live:</strong>{" "}
-                                            {project.liveUrl}
-                                        </p>
+                                        {technologies.length > 0 && (
+                                            <div className="project-tech">
+                                                <em>Tech: </em>
 
-                                    ) : (
+                                                {technologies.map((tech, techIndex) => {
+                                                    const techName =
+                                                        typeof tech === "string"
+                                                            ? tech
+                                                            : tech?.value || tech?.label || "";
 
-                                        <p className="placeholder">
-                                            Live: https://your-live-link.com
-                                        </p>
+                                                    return (
+                                                        <span key={techIndex}>
+                                                            {techName}
+                                                            {techIndex < technologies.length - 1 ? ", " : ""}
+                                                        </span>
+                                                    );
+                                                })}
+                                            </div>
+                                        )}
+                                        {project?.description ? (
 
-                                    )}
+                                            <p>
+                                                {project.description}
+                                            </p>
 
+                                        ) : (
 
-                                    {project.githubUrl ? (
+                                            <p className="placeholder">
+                                                Describe your project and
+                                                what you built...
+                                            </p>
 
-                                        <p>
-                                            <strong>GitHub:</strong>{" "}
-                                            {project.githubUrl}
-                                        </p>
+                                        )}
 
-                                    ) : (
-
-                                        <p className="placeholder">
-                                            GitHub: https://github.com/your-repo
-                                        </p>
-
-                                    )}
-
-
-                                    {project.techStack.length > 0 ? (
-
-                                        <p>
-                                            <strong>Tech:</strong>{" "}
-                                            {project.techStack
-                                                .map(item => item.label)
-                                                .join(", ")}
-                                        </p>
-
-                                    ) : (
-
-                                        <p className="placeholder">
-                                            Tech: React, Node.js
-                                        </p>
-
-                                    )}
-
-
-                                    {project.description ? (
-
-                                        <p>
-                                            {project.description}
-                                        </p>
-
-                                    ) : (
-
-                                        <p className="placeholder">
-                                            Describe your project and
-                                            what you built...
-                                        </p>
-
-                                    )}
-
-                                </div>
-
-                            ))
+                                    </div>
+                                );
+                            })
 
                         )}
 
