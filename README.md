@@ -5,7 +5,7 @@ ResumeIQ is a full-stack AI-powered resume builder designed to help users create
 Users can upload an existing resume, automatically extract its information, edit and improve the content, preview the resume using professional templates, and export the final resume as a PDF.
 
 ## 🎥 Demo
-https://github.com/user-attachments/assets/6bf3bb0c-9fb6-4fea-930e-588ff4aa9c46
+[https://github.com/user-attachments/assets/6bf3bb0c-9fb6-4fea-930e-588ff4aa9c46](https://drive.google.com/file/d/1_qenH_KB716a49UP2n05mbYSDRE1YDBq/view?usp=sharing)
 
 ## 🚀 Live Demo
 
