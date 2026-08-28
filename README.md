@@ -66,23 +66,40 @@ https://ai-resume-builder-omega-pearl.vercel.app/
 - Render
 
 ## Project Architecture
-ResumeIQ
-│
-├── client/
-│   ├── components/
-│   ├── pages/
-│   ├── templates/
-│   ├── services/
-│   
-│
-├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── server.js
-│
-└── README.md
+ResumeIQ/
+
+
+                              │
+               ┌──────────────┴──────────────┐
+               │                             │
+            Frontend                      Backend
+            (client)                      (server)
+               │                             │
+        ┌──────┼──────┐              ┌───────┼────────┐
+        │      │      │              │       │        │
+    Component Pages Templates      Controllers Routes Middleware
+        │      │      │              │       │        │
+        └──────┴──────┘              └───────┼────────┘
+               │                             │
+            Services                       Config
+               │                             │
+               └──────────────┬──────────────┘
+                              │
+                          Mistral AI
+                              │
+                       Resume Processing
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+                Resume Data         AI Enhancement
+                    │                   │
+                    └─────────┬─────────┘
+                              │
+                       Resume Editor
+                              │
+                   Professional Templates
+                              │
+                       PDF Export
 🔄 How It Works
 Upload Resume
       ↓
